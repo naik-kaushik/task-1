@@ -6,12 +6,11 @@ const Table = () => {
     fetch("https://s3.amazonaws.com/open-to-cors/assignment.json")
       .then((response) => response.json())
       .then((result) => {
-        console.log("RESULT " + result.products);
         for (const idx in result.products) {
           setData((prev) => [...prev, result.products[idx]]);
         }
       });
-  },[]);
+  }, []);
   data.sort((a, b) => {
     return b.popularity - a.popularity;
   });
